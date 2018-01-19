@@ -1,7 +1,4 @@
-\documentclass{article}
-\usepackage{amsmath}    
-\usepackage{leftidx}
-\begin{document}
+\subsection{Similarity search and normalization}
 Let $G_A, G_B$ denote genomes $A$ and $B$ respectively,
 and let a ``genome'' be a finite set of all possible PPSs
 (the length of a PPS in this study is subject to constraints
@@ -23,7 +20,7 @@ B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
 &b_{A \rightarrow B}^i\\
 &0, && \text{if no hits found}
 \end{aligned} \right.
-\end{equation} 
+\end{equation}
 
 Suppose we are provided with a finite set of genomes \\
 $S = \{G_1, G_2, \ldots, G_M\} = \{G_j\}_1^M$, where $M$ is the number of
@@ -51,7 +48,7 @@ the given $g_A^x$. We will thus perform the scaling as for each $b$ in $BM^+$:
 
 \begin{equation}
 \leftidx{^0}b_{A \rightarrow B}^x = \dfrac{b_{A \rightarrow B}^x}{b_{A \rightarrow
-A}^x} 
+A}^x}
 \end{equation}
 
 \newcommand{\bmzp}{\leftidx{^0}BM^+}
@@ -69,7 +66,7 @@ will select a submatrix of $\bmzp{}$ with all columns except for those
 corresponding to $A$ and $B$ and rows corresponding only to $A$ and $B$ (denote
 $\leftidx{^0}BM_{A,B}^+$).
 \newcommand{\bmzpab}{\leftidx{^0}BM_{A,B}^+}
-We will then fit a logistic regression model using the R {\tt glm()} funciton
+We will then fit a logistic regression model using the R {\tt glm{()}} funciton
 in R with {\tt family="binomial"} parameter. The model will then be reduced to
 a minimal with {\tt step()} with {\tt direction="both"}. The reduced model will
 be used to bootstrap the $\beta$ coefficients of the model with {\tt boot()} and
@@ -79,5 +76,4 @@ sampled with replacement and the model will be retrained 1000 times, and
 finally, the median $\beta$ coefficient for each predictor will be selected to
 assemble a bootstrapped model. The bootstrapped model will be used to assign
 probabilities for each vector within the model data matrix (and thus $g$ from
-$A$ and $B$) to belong to $A$ or $B$ respectively, see Table ... below.
-\end{document}
+$A$ and $B$) to belong to $A$ or $B$ respectively, see Table below.
