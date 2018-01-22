@@ -35,7 +35,9 @@ G_j)_{j=1}^M)
 
 Obtained for each $g$ in every $G$ and ``stacked'' together, the $V$ vectors
 form a matrix $BM$ of size $N*M$, where $N=\sum_{i=1}^k L_{G_i}$ and $M$,
-again, -- the total number of genomes in the study. For further analysis we chose
+again, -- the total number of genomes in the study.
+\todo{need an illustration here}
+For further analysis we chose
 to ``filter'' $BM$ to only include $V$s which had at least 3 distinct hits
 (``distinct'' here means the bit-score of a similarity search $B(g_A^x,
 G_B)>0$), and denote such ``filtered'' matrix: $BM^+$.
@@ -53,7 +55,7 @@ A}^x}
 
 \newcommand{\bmzp}{\leftidx{^0}BM^+}
 
-and the resulting scaled materix we denote $\leftidx{^0}BM^+$. This matrix and
+and the resulting scaled matrix we denote $\leftidx{^0}BM^+$. This matrix and
 its slices, corresponding to $g$s from individual subsets of genomes, we will
 be using for further analysis (see Attachment).
 
