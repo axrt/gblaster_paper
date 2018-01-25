@@ -62,7 +62,7 @@ different genomes, does not necessarily indicate that some genomes are more
 prone to the acquisition of sequences due to HGT. We used a PFAM analysis to
 check for any PFAM domains are significantly overrepresented in “outsider
 multiple” sets of sequences. A list of top-ranked findings (ranked by
-significance) is presented in Table ~\ref{table:pfam_domains}.We would like to highlight some of the
+significance) is presented in Table ~\ref{table:pfam_domains}. We would like to highlight some of the
 most interesting findings.
 \begin{center}
 \pgfplotstabletypeset[
@@ -76,7 +76,7 @@ most interesting findings.
     },
     every last row/.style={after row=\hline},
     columns/pdom/.style={column name=PFAM Domain, column type=l},
-    columns/pval/.style={column name=P-value, column type=l},
-    columns/spec/.style={column name=Species, column type=c},
+    columns/spec/.style={column name=Species, column type=l},
+    columns/pval/.style={column name=P-value, column type=l}
     ]{resources/pfam_domain_table.csv}
 \end{center}
