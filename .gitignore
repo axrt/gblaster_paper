@@ -7,3 +7,7 @@
 *.gz
 *.swp
 *.xdv
+*.sav
+*.bak
+*.bbl
+*.blg
