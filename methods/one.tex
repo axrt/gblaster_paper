@@ -1,15 +1,10 @@
 \subsection{Genomes and protein-coding regions used}
 We used publicly available nucleotide sequences of 61 genomes from major
 domains of life (Supplement 1). Since these genomes have varying annotation
-depth, we adhered to a heuristic approach and analyzed each genome for open
-reading frames of minimum length 150 b.p. as proxies to encoded putative
-protein sequences (PPS). These regions may or may not correspond to existing 
-genes, because splicing was not taken into account.
-\todo{Meh...}
-\hl{We did not use any of the
-existing annotations so that well-annotated and poorly annotated genomes were
-handled in the same way, and no bias corresponding to the different annotation
-processes used by different authors could have influenced our results. That way
-we also did our best not to miss any of the non-annotated protein-coding
-sequences.}
-As a result, for each genome considered we created a set of PPSs.
+coverage, we adhered to a heuristic approach: we searched each genome for
+putative open reading frames of minimum length 150 b.p., and used those as
+proxies to potentially existing protein coding sequences. These putative
+protein-coding sequences (PPS) may or may not be parts of existing genes, or
+may be translated only partially as splicing was not taken into account.
+As a result, for each genome considered we created a set of PPSs for all three
+coding frames.

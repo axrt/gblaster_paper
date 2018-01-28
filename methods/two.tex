@@ -1,8 +1,8 @@
 \subsection{Similarity search and normalization}
-Let $G_A, G_B$ denote genomes $A$ and $B$ respectively,
-and let a ``genome'' be a finite set of all possible PPSs
-(the length of a PPS in this study is subject to constraints
-$150 \leq length(PPS) \leq 1e4$) that can be derived from it as in:
+\label{simsearch}
+Let $G_A, G_B$ denote genomes $A$ and $B$ respectively, and let a ``genome'' be
+a finite set of all possible PPSs that can be derived from it (the length of a
+PPS in this study is subject to constraints $150 \leq length(PPS) \leq 1e4$):
 
 \begin{equation}
 G_A = \{g_A^1, g_A^2, \ldots, g_A^{L_A}\} = \{g_A^i\}_{i=1}^{L_A}
@@ -11,8 +11,10 @@ where $g_A^i$ is a PPS from genome $A$ with index $i$, $L_A$ is the size of
 the genome-set $A$.
 Should we choose to search the most similar sequence for some $g_A^i$ in some
 $G_B$ using a BLASTP algorithm implementation, we will end up with a (possibly
-empty) set of best hits. Here we are only interested in the topmost hit's
-bit-score denoted $b_{A \rightarrow B}^i$. More formally:
+empty) set of best hits (empty if no significantly similar sequence could be
+found in the reference set). If the hit set is not empty, we would be
+interested in the topmost hit and its bit-score denoted $b_{A \rightarrow B}^i$. More
+formally:
 
 \begin{equation}
 B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
@@ -22,7 +24,7 @@ B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
 \end{aligned} \right.
 \end{equation}
 
-Suppose we are provided with a finite set of genomes \\
+Suppose now that we are provided with a finite set of genomes \\
 $S = \{G_1, G_2, \ldots, G_M\} = \{G_j\}_1^M$, where $M$ is the number of
 genomes in the set (61 total in this study). Should we choose to search for
 sequence similarity for some $g_A^x$ in each genome, we will be provided with a
@@ -68,14 +70,33 @@ will select a submatrix of $\bmzp{}$ with all columns except for those
 corresponding to $A$ and $B$ and rows corresponding only to $A$ and $B$ (denote
 $\leftidx{^0}BM_{A,B}^+$).
 \newcommand{\bmzpab}{\leftidx{^0}BM_{A,B}^+}
-We will then fit a logistic regression model using the R {\tt glm{()}} funciton
-in R with {\tt family="binomial"} parameter. The model will then be reduced to
-a minimal with {\tt step()} with {\tt direction="both"}. The reduced model will
-be used to bootstrap the $\beta$ coefficients of the model with {\tt boot()} and
-a custom function provided for sampling and retraining the model (see
-Attachment). In essense, vectors from the reduced data matrix will be
-sampled with replacement and the model will be retrained 1000 times, and
-finally, the median $\beta$ coefficient for each predictor will be selected to
-assemble a bootstrapped model. The bootstrapped model will be used to assign
-probabilities for each vector within the model data matrix (and thus $g$ from
-$A$ and $B$) to belong to $A$ or $B$ respectively, see Table below.
+\todo{Need an illustration here}
+We will then fit a logistic regression model using the {\tt glm{()}} funciton
+in R with the {\tt family=} parameter set to {\tt "binomial"}. The model will
+then be reduced to a minimal with {\tt step()} with {\tt direction="both"}. The
+reduced model will be used to bootstrap the $\beta$ coefficients of the model
+with {\tt boot()} and a custom function provided for sampling (see Attachment).
+In essense, the sampling function achieves the following: vectors from the
+reduced data matrix are sampled with replacement, a sampled matrix is used to
+fit a new logistic regression model, and the $\beta$ coefficients for
+predictors of the new model are retained. Finally, the median $\beta$
+coefficient for each predictor across all training iterations (1000 in this
+study) is selected to assemble a final ``bootstrapped''
+model. The bootstrapped model will be used to assign probabilities for each
+vector within $\bmzpab$ matrix (and thus $g$ from $A$ and $B$) to ``likely
+belong'' to $A$ or $B$ respectively.
+
+As a minor digression, we would like to discuss the possible states of a $g$
+after it has been classified by the bootstrapped model. Should some $g_A$ be
+assigned to cluster $A$ by the logistic regression model, we call such $g$
+a $g$-``core''. Conversely, a $g_A$ assigned to $B$ is an $g$-``outsider''. As
+regarding the term ``assigned'' above: denote the first case probability as $P(g_A \in
+A)$. In order to confidently ``assign'' $g_A$ to genome $A$, we chose a margin
+$P(g_A \in A) >0.975$, and a $g_A^x$ is called $g_A^x$-core only if $P(g_A^x
+\in A) > 0.975$ in accordance to the bootstrapped logistic regression model.
+Furthermore, a $g_A^x$ is called $g_A^x$-outsider if $P(g_A^x \in A) < 0.025$,
+which would indicate that $g_A^x$ is far more likely to be coming from $B$,
+than from its true origin - genome $A$. It is clear that for many $g_A$ $0.025
+< P(g_A \in A) < 0.975$ will hold. We call such $g_A$ ``uncertain'', and
+speculate that the number of such $g$ is likely to decrease with the addition
+of new genomes to the input set, thus increasing the resolution of the method.
