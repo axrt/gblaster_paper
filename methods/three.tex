@@ -1,13 +1,23 @@
-\subsection{PFAM analysis} Each protein-coding sequence with hits in 3 or more
-other genomes was analyzed using PFAM \cite{Finn2014}. For each genome, we compared the
-number of genes with each discovered PFAM domain between the core and outsider
-multiple sequences. We used a chi-square test to assess whether any domains
-were significantly over- or underrepresented among outsider multiple sequences.
-We considered p-values of 5.5 x 10-7 to be statistically significant (a
-Bonferroni correction for multiple comparisons was applied to account for 89688
-domain/species combinations used in the analysis). Note that technically this
-is not a strict statistical procedure, since similar genes will have similar
-arrays of bit scores and our classification of these genes will not be
-independent. Similarly, this does not distinguish multiple HGT events of
-sequences containing the same PFAM domain from a single HGT event followed by
-multiple gene duplications. Main findings were evaluated manually.
+\subsection{Domain analysis}
+The term $g_{outsider}$ introduced in \ref{regmodqual} may be extended to
+cover multiple comparisons: a $g$ may be classified as an ``outsider'' by
+multiple models simultaniously. We propose a term $g_{outsider}^{multiple}$ to
+denote such $g$, and $g_{outsider}^{once}$ denote a special case when a $g$ was
+classified as ``outsider'' only by one model. We aregue that
+$g_{outsider}^{multiple}$ are stronger candidates for an HGT event, or an event
+of a detected contamination of a number of genome assembiles. To gain a better
+understanding of the nature of the $g_{outsider}^{multiple}$s we chose to
+analyse their putative domain structure.
+
+We used PFAM \cite{Finn2014} to carry out the domain analysis. For each
+genome, we compared the number of genes with each discovered PFAM domain
+between the core and outsider multiple sequences. We used a chi-square test to
+assess whether any domains were significantly over- or underrepresented among
+outsider multiple sequences.  We considered p-values of 5.5 x 10-7 to be
+statistically significant (a Bonferroni correction for multiple comparisons was
+applied to account for 89688 domain/species combinations used in the analysis).
+Note that technically this is not a strict statistical procedure, since similar
+genes will have similar arrays of bit scores and our classification of these
+genes will not be independent. Similarly, this does not distinguish multiple
+HGT events of sequences containing the same PFAM domain from a single HGT event
+followed by multiple gene duplications. Main findings were evaluated manually.
