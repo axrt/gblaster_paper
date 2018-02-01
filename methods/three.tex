@@ -9,15 +9,17 @@ of a detected contamination of a number of genome assembiles. To gain a better
 understanding of the nature of the $g_{outsider}^{multiple}$s we chose to
 analyse their putative domain structure.
 
-We used PFAM \cite{Finn2014} to carry out the domain analysis. For each
-genome, we compared the number of genes with each discovered PFAM domain
-between the core and outsider multiple sequences. We used a chi-square test to
-assess whether any domains were significantly over- or underrepresented among
-outsider multiple sequences.  We considered p-values of 5.5 x 10-7 to be
-statistically significant (a Bonferroni correction for multiple comparisons was
-applied to account for 89688 domain/species combinations used in the analysis).
-Note that technically this is not a strict statistical procedure, since similar
-genes will have similar arrays of bit scores and our classification of these
-genes will not be independent. Similarly, this does not distinguish multiple
-HGT events of sequences containing the same PFAM domain from a single HGT event
-followed by multiple gene duplications. Main findings were evaluated manually.
+We used PFAM-A \cite{Finn2014} database and HMMER \cite{Prakash2017} to search
+for known domains in all PPSs with 3 or more hits in other genomes. 
+For each genome, we compared the number of genes with each discovered PFAM domain
+between the core and both $g_{outsider}^{once}$ and $g_{outsider}^{multiple}$ sequences.
+We used a chi-square test to assess whether any domains were significantly
+over- or underrepresented among outsider multiple sequences.  We considered
+p-values of 5.86E-07=0.005/85254 to be statistically significant (a Bonferroni
+correction for multiple comparisons was applied to account for 85252
+domain/species combinations used in the analysis). Note that technically this
+is not a strict statistical procedure, since similar genes will have similar
+arrays of bit scores and our classification of these genes will not be
+independent. Similarly, this does not distinguish multiple HGT events of
+sequences containing the same PFAM domain from a single HGT event followed by
+multiple gene duplications. Main findings were evaluated manually.

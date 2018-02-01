@@ -1,8 +1,9 @@
 \subsection{Similarity search and normalization}
 \label{simsearch}
 Let $G_A, G_B$ denote genomes $A$ and $B$ respectively, and let a ``genome'' be
-a finite set of all possible PPSs that can be derived from it (the length of a
-PPS in this study is subject to constraints $150 \leq length(PPS) \leq 1e4$):
+a finite set of all possible PPSs that can be derived from its nucleotide
+sequence (the length of a PPS in this study is subject to constraints $150 \leq
+length(PPS) \leq 1e4$):
 
 \begin{equation}
 G_A = \{g_A^1, g_A^2, \ldots, g_A^{L_A}\} = \{g_A^i\}_{i=1}^{L_A}
@@ -13,8 +14,8 @@ Should we choose to search the most similar sequence for some $g_A^i$ in some
 $G_B$ using a BLASTP algorithm implementation, we will end up with a (possibly
 empty) set of best hits (empty if no significantly similar sequence could be
 found in the reference set). If the hit set is not empty, we would be
-interested in the topmost hit and its bit-score denoted $b_{A \rightarrow B}^i$. More
-formally:
+interested in the topmost hit and its bit-score denoted $b_{A \rightarrow
+B}^i$. More formally:
 
 \begin{equation}
 B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
@@ -27,7 +28,7 @@ B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
 Suppose now that we are provided with a finite set of genomes \\
 $S = \{G_1, G_2, \ldots, G_M\} = \{G_j\}_1^M$, where $M$ is the number of
 genomes in the set (61 total in this study). Should we choose to search for
-sequence similarity for some $g_A^x$ in each genome, we will be provided with a
+sequence similarity for some $g_A^x$ in each genome, we will assemble a
 vector of best hit bit-scores:
 
 \begin{equation}
@@ -44,7 +45,7 @@ to ``filter'' $BM$ to only include $V$s which had at least 3 distinct hits
 (``distinct'' here means the bit-score of a similarity search $B(g_A^x,
 G_B)>0$), and denote such ``filtered'' matrix: $BM^+$.
 
-As the last step of data preparation we suggested that the bit-score values be
+As the last step of the data preparation we suggested that the bit-score values be
 scaled as follows. $b_{A \rightarrow A}^x = B(g_A^x, G_A)$ is essentially a
 result of a search for the best hit for $g_A^x$ within genome $A$, which is
 $g_A^x$ itself, and the bit-score of such a match is the maximum possible for
@@ -61,7 +62,7 @@ and the resulting scaled matrix we denote $\leftidx{^0}BM^+$. This matrix and
 its slices, corresponding to $g$s from individual subsets of genomes, we will
 be using for further analysis (see Attachment).
 
-The matrix $\bmzp{}$ obtained above we will be using for pairwaise genome
+The matrix $\bmzp{}$ obtained above will be used for pairwaise genome
 comparison with the following general approach:
 for each pair of $G \in S$ (denote a pair of some genomes $A$, $B$ as
 $P_{A,B}$) a ``slice'' of the matrix $\bmzp{}$
@@ -89,7 +90,7 @@ belong'' to $A$ or $B$ respectively.
 As a minor digression, we would like to discuss the possible states of a $g$
 after it has been classified by the bootstrapped model. Should some $g_A$ be
 assigned to cluster $A$ by the logistic regression model, we call such $g$
-a $g$-``core''. Conversely, a $g_A$ assigned to $B$ is an $g$-``outsider''. As
+a $g$-``core''. Conversely, a $g_A$ assigned to $B$ is a $g$-``outsider''. As
 regarding the term ``assigned'' above: denote the first case probability as $P(g_A \in
 A)$. In order to confidently ``assign'' $g_A$ to genome $A$, we chose a margin
 $P(g_A \in A) >0.975$, and a $g_A^x$ is called $g_A^x$-core only if $P(g_A^x
