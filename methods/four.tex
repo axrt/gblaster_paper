@@ -1,7 +1,7 @@
 \subsection{Regression model quality}
 \label{regmodqual}
-It is clear that the reliability of the logistic regression models, obtained
-as described in \ref{simsearch}, should be controlled for. Consider a ratio
+It is clear that the reliability of the logistic regression models obtained as
+described in \ref{simsearch}, should be controlled for. Consider a ratio
 $\dfrac{n_{g_{uncertain}}}{n_{g_{core}}+n_{g_{outsider}}}$ where
 $n_{g_{uncertain}}$ is the total number of $g$s predicted as ``uncertain'' by a
 regression model, and similarly, $n_{g_{core}}$ and $n_{g_{outsider}}$ are the
@@ -10,16 +10,15 @@ Intuitively, the closer a genome $A$ is to genome $B$ on the tree of life (say,
 genera from the same order by conventional taxonomic classification), the more
 difficult it is to confidently assign individual $g$s from a mix $\bmzpab$ back
 to the corresponding clusters $A$ and $B$ due to a relatively higher genome's
-$G_A$ and $G_B$ genome sequence constitution. Thus, the subjective
-``difficulty'' of a reliable assignment may vary grately between certain pairs
-of related genomes, in some cases allowing for reliable assignment, however
-being a roadblock for any sensible assignment at all in other.
+$G_A$ and $G_B$ genome sequence constitution. Thus, the subjective "difficulty"
+of a reliable assignment may vary grately between certain pairs of related
+genomes allowing for reliable assignment only in some cases.
 
 In this study we propose the common McFadden's $R^2$ \cite{McFadden1974} as a
 measure of a logistic regression model quality. We chose to only consider
 models with $R_{McFadden}^2$ values larger than 0.73 - an arbitrary selected
-cutoff, which rougly corresponds to the starting point of the linear growth on
+cutoff, which roughly corresponds to the starting point of the linear growth on
 the plot of $R_{McFadden}^2$ values sorted ascending for all models obtained
-previously (see Supplement). We would like to emphasize that the choise of the
+previously (see Supplement). We would like to emphasize that the choice of the
 cutoff should depend on the nature of the study and be derived from the model
 quality distribution.
