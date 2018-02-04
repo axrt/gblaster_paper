@@ -34,24 +34,24 @@ metagenomic experiments where separation of genes was not successful (R2 <
 \end{figure}
 \end{center}
 
-Figure ~\ref{fig:rsquared_curve} presents the $R^2$ values obtained in a series
-of in silico metagenomic experiments involving \textit{Drosophila simulans} and
-each other genome in our dataset (higher R2 values are better). As expected, it
-is difficult to separate the sequences of and closely related arthropods (low
-R2 values) but it is easy to fulfill this task for distantly related genome
-pairs such as \textit{Drosophila} and \textit{Mycoplasma}.
+Figure ~\ref{fig:rsquared_curve} presents the $R^2$ values obtained for
+regression models using \textit{Drosophila simulans} and each other genome in
+our dataset (higher $R^2$ values are better). As expected, it is difficult to
+separate the sequences of and closely related arthropods (low $R^2$ values) but
+it is easy to fulfill this task for distantly related genome pairs such as
+\textit{Drosophila} and \textit{Mycoplasma}.
 \begin{center}
 \begin{figure}
 \includegraphics[width=12cm]{figures/rsq_drosoph_bootstrapped.pdf}
-\caption{$R^2$ values for regression models for \textit{Drosophila} vs all other
-genomes.}
+\caption{$R^2$ values for regression models for \textit{Drosophila} vs. all
+other genomes.}
 \label{fig:rsquared_curve}
 \end{figure}
 \end{center}
 The majority of sequences (287942, 97.1\%) from each analyzed genome were
 classified as core sequences in all metagenomic experiment with validated
 regression models. 3992 (1.3\%) PPS were classified as "outsider" by one model
-(in one comparison of two genomes).  The remaining 4705 (1.6\%) sequences were
+(in one comparison of two genomes). The remaining 4705 (1.6\%) sequences were
 classified as “outsider multiple” and are the most likely candidates for HGT.
 The list of protein-coding open reading frames classified as “outsider once”,
 or “outsider multiple” along with their FASTA sequences is available for
@@ -61,10 +61,10 @@ that our approach does not distinguish HGT from genomic contaminations. Thus
 the observed differences in Core/Outsider ratio between different genomes, does
 not necessarily indicate that some genomes are more prone to the acquisition of
 sequences due to HGT. We used a PFAM analysis to check for any PFAM domains are
-significantly overrepresented in “outsider multiple” sets of sequences. A list
-of top-ranked findings (ranked by significance) is presented in Table
-~\ref{table:pfam_domains}. We would like to highlight some of the most
-interesting findings.
+significantly overrepresented PPS that were classified as outsiders by some of
+the models. A list of top-ranked findings (ranked by significance) is presented
+in Table ~\ref{table:pfam_domains}. We would like to highlight some of the most
+interesting findings are highlighted.
 \begin{center}
 \begin{table}
 \pgfplotstabletypeset[
