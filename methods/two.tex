@@ -11,11 +11,11 @@ G_A = \{g_A^1, g_A^2, \ldots, g_A^{L_A}\} = \{g_A^i\}_{i=1}^{L_A}
 where $g_A^i$ is a PPS from genome $A$ with index $i$, $L_A$ is the size of
 the genome-set $A$.
 Should we choose to search the most similar sequence for some $g_A^i$ in some
-$G_B$ using a BLASTP [] algorithm implementation, we will end up with a (possibly
-empty) set of best hits (empty if no significantly similar sequence could be
-found in the reference set). If the hit set is not empty, we would be
-interested in the topmost hit and its bit-score denoted $b_{A \rightarrow
-B}^i$. More formally:
+$G_B$ using a BLASTP \cite{Altschul1990} algorithm implementation, we will end
+up with a (possibly empty) set of best hits (empty if no significantly similar
+sequence could be found in the reference set). If the hit set is not empty, we
+would be interested in the topmost hit and its bit-score denoted $b_{A
+\rightarrow B}^i$. More formally:
 
 \begin{equation}
 B(g_A^x, G_B) = BLASTP(g_A^x, G_B)=\left \{
@@ -37,12 +37,12 @@ G_j)_{j=1}^M)
 \end{equation}
 
 Obtained for each $g$ in every $G$ and ``stacked'' together, the $V$ vectors
-form a matrix $BM$ of size $N*M$, where $N=\sum_{i=1}^k L_{G_i}$ and $M$ is
+form a matrix $BM$ of size $N*M$, where $N=\sum_{i=1}^M L_{G_i}$ and $M$ is
 the total number of genomes in the study.
 \todo{need an illustration here}
 For further analysis we chose to ``filter'' $BM$ to only include $V$s which had
 at least 3 distinct hits (``distinct'' here means the bit-score of a similarity
-search $B(g_A^x, G_B)>30$), and denote such ``filtered'' matrix: $BM^+$.
+search $B(g_A^x, G_B)>=30$), and denote such ``filtered'' matrix: $BM^+$.
 
 As the last step of the data preparation we suggested that the bit-score values
 be scaled as follows. $b_{A \rightarrow A}^x = B(g_A^x, G_A)$ is essentially a
@@ -59,7 +59,7 @@ A}^x}
 
 and the resulting scaled matrix we denote $\leftidx{^0}BM^+$. This matrix and
 its slices, corresponding to $g$s from individual subsets of genomes, we will
-be using for further analysis (see Attachment).
+be using for further analysis (see Supplement).
 
 The matrix $\bmzp{}$ obtained above will be used for pairwaise genome
 comparison with the following general approach:
@@ -75,7 +75,7 @@ We will then fit a logistic regression model using the {\tt glm{()}} function
 in R with the {\tt family=} parameter set to {\tt "binomial"}. The model will
 then be reduced to a minimal with {\tt step()} with {\tt direction="both"}. The
 reduced model will be used to bootstrap the $\beta$ coefficients of the model
-with {\tt boot()} and a custom function provided for sampling (see Attachment).
+with {\tt boot()} and a custom function provided for sampling (see Supplement).
 In essense, the sampling function achieves the following: vectors from the
 reduced data matrix are sampled with replacement, a sampled matrix is used to
 fit a new logistic regression model, and the $\beta$ coefficients for
