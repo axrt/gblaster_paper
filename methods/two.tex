@@ -61,7 +61,7 @@ and the resulting scaled matrix we denote $\leftidx{^0}BM^+$. This matrix and
 its slices, corresponding to $g$s from individual subsets of genomes, we will
 be using for further analysis (see Supplement).
 
-The matrix $\bmzp{}$ obtained above will be used for pairwaise genome
+The matrix $\bmzp{}$ obtained above will be used for pairwise genome
 comparison with the following general approach:
 for each pair of $G \in S$ (denote a pair of some genomes $A$, $B$ as
 $P_{A,B}$) a ``slice'' of the matrix $\bmzp{}$
@@ -76,7 +76,7 @@ in R with the {\tt family=} parameter set to {\tt "binomial"}. The model will
 then be reduced to a minimal with {\tt step()} with {\tt direction="both"}. The
 reduced model will be used to bootstrap the $\beta$ coefficients of the model
 with {\tt boot()} and a custom function provided for sampling (see Supplement).
-In essense, the sampling function achieves the following: vectors from the
+In essence, the sampling function achieves the following: vectors from the
 reduced data matrix are sampled with replacement, a sampled matrix is used to
 fit a new logistic regression model, and the $\beta$ coefficients for
 predictors of the new model are retained. Finally, the median $\beta$

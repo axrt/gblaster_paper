@@ -1,18 +1,16 @@
 \subsection{Domain analysis}
 \label{domain_analysis}
 We used PFAM-A \cite{Finn2014} database and HMMER \cite{Prakash2017} to search
-for known domains in all PPSs with 3 or more hits in other genomes.  For each
+for known domains in all PPSs with 3 or more hits in other genomes. For each
 genome, we compared the number of genes with each discovered PFAM domain
 between the core and outsider sequences (those that have been classified as
-outsider in at least one regression analysis).  We used a chi-square test to
+outsider in at least one regression analysis). We used a chi-square test to
 assess whether any domains were significantly over- or underrepresented among
-outsider sequences. We considered p-values of 5.86E-07=0.005\todo{are we sure
-this is not 0.05?}/85254 to
-be statistically significant (a Bonferroni correction for multiple comparisons
-was applied to account for 85252 domain/species combinations used in the
-analysis). \todo{wanna discuss from here downward}Note that technically this is not a strict statistical procedure,
-since similar genes will have similar arrays of bit scores and our
-classification of these genes will not be independent. Similarly, this does not
-distinguish multiple HGT events of sequences containing the same PFAM domain
-from a single HGT event followed by multiple gene duplications. Main findings
-were evaluated manually.
+outsider sequences. We considered p-values of 5.86E-07=0.005/85254 to be
+statistically significant (a Bonferroni correction for multiple comparisons was
+applied to account for 85254 domain/species combinations used in the analysis).
+Note that technically this is not a strict statistical procedure, since similar
+genes will have similar arrays of bit scores and our classification of these
+genes will not be independent. Similarly, this does not distinguish multiple
+HGT events of sequences containing the same PFAM domain from a single HGT event
+followed by multiple gene duplications. Main findings were evaluated manually.

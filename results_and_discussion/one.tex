@@ -1,6 +1,6 @@
 \subsection{Outsider detection}
 \label{outsider_detection}
-We built 61*60/2 = 1830 bootstrapped regresson models to analyse a total of
+We built 61*60/2 = 1830 bootstrapped regression models to analyze a total of
 296639 distinct PPS. A total of 67\% of the trained regression models passed
 model quality control. Let us use the \textit{Drosophila
 simulans}/\textit{Wolbachia} pair as an example of what was done. Figure
@@ -21,14 +21,14 @@ illustrative purposes.
 Figure ~\ref{fig:rsquared_barplot} contains an overview of the regression
 models for \textit{Drosophila simulans} and each genome it was compared with.
 Core genes are PPS from a genome that were correctly assigned to that
-particular genome by the regression analysis. Outsider PPS are sequences that were
-assigned to the other genome. The uncertain PPS are marked grey.
+particular genome by the regression analysis. Outsider PPS are sequences that
+were assigned to the other genome. The uncertain PPS are marked gray.
 \begin{center}
 \begin{figure}
 \includegraphics[width=12cm]{figures/core_outsider_barplot_bootstrapped.pdf}
 \caption{The fraction of core/outsider \textit{Drosophila simulans} genes in
-each model. The gray coloring represents the genome pairs where separation of genes was not successful (R2 <
-0.73)}
+each model. The gray coloring represents the genome pairs where separation of
+genes was not successful ($R^2$ < 0.73)}
 \label{fig:rsquared_barplot}
 \end{figure}
 \end{center}
