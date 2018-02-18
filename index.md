@@ -6,11 +6,11 @@ use to reproduce/extend the results.
 
 The 'gBLASTer' workflow pipeline consists of three components:
 
-- Java 8[] + DerbyDB[] backend that is responsible for coordinating gpuBLASTP[]
+- [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) + [DerbyDB](https://db.apache.org/derby/) backend that is responsible for coordinating [gpuBLASTP](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3018811/)
   and storing the results in an SQL database for further retrieval;
-  a corresponding repository can be found here:[]
+  a corresponding repository can be found here:[gBLASTer](https://github.com/axrt/gBLASTer.git)
 - R-package (gbra) that contains common helper functions use in this study;
-  a corresponding repository can be found here:[]
+  a corresponding repository can be found here:[gbra](https://github.com/axrt/gbra)
 - Custom R scripts, available as Rmarkdown files to facilitate reproduction;
   a corresponding repository can be found here:[]
 
@@ -30,3 +30,4 @@ The "combed input data" can be found as follows:
 
 Computer systems used in this study: [layout of from the system]
 
+## Supplementary Diagrams and Tables
