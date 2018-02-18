@@ -1,0 +1,32 @@
+# Algorithmic detection of lateral gene transfer using regression analysis
+## (Supplementary Materials)
+
+This page supplies additional research materials that an interested reader may
+use to reproduce/extend the results.
+
+The 'gBLASTer' workflow pipeline consists of three components:
+
+- Java 8[] + DerbyDB[] backend that is responsible for coordinating gpuBLASTP[]
+  and storing the results in an SQL database for further retrieval;
+  a corresponding repository can be found here:[]
+- R-package (gbra) that contains common helper functions use in this study;
+  a corresponding repository can be found here:[]
+- Custom R scripts, available as Rmarkdown files to facilitate reproduction;
+  a corresponding repository can be found here:[]
+
+Due to an exceedingly large volume on the raw data (SQL database, over 0.5TB),
+we do not have an opportunity to make it available online, but will gladly
+share the data upon request.
+
+The "combed input data" can be found as follows:
+
+- A genome legend that maps genome names to their database IDs:
+- A raw bit-score matrix:
+- A filtered bit-score matrix:
+- A block of Rmd code that was used to operate on the matrix above to obtain
+  the results and produce output graphics:
+- A Perl script used to perform the domain search in PFAM[]:
+- A Perl script used to perform statistics on the domain distribution:
+
+Computer systems used in this study: [layout of from the system]
+
