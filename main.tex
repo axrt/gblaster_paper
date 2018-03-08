@@ -9,20 +9,21 @@
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{pgfplotstable}
+\usepackage[citestyle=numeric, sorting=none]{biblatex}
+\addbibresource{tex.bib}
 \setmainfont[Ligatures=TeX]{Ubuntu}
 \setsansfont[Ligatures=TeX]{Ubuntu}
 \renewcommand{\baselinestretch}{2.0}
+
+%content
 \begin{document}
 \input{header}
 \maketitle
-\linenumbers
-\fontdimen2\font=7pt
-\input{abstract}
+% \linenumbers
 \input{introduction}
-\input{methods}
-\input{results_and_discussion}
-\input{conclusions}
-\input{references}
-\bibliographystyle{plain}
-\bibliography{tex}
+%\input{methods}
+%\input{results_and_discussion}
+%\input{conclusions}
+%\input{references}
+% \printbibliography
 \end{document}
