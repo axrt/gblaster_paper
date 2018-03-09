@@ -14,16 +14,17 @@
 \setmainfont[Ligatures=TeX]{Ubuntu}
 \setsansfont[Ligatures=TeX]{Ubuntu}
 \renewcommand{\baselinestretch}{2.0}
-
+\linenumbers
+\fontdimen2\font=7pt
 %content
 \begin{document}
 \input{header}
 \maketitle
-% \linenumbers
+\linenumbers
 \input{introduction}
-%\input{methods}
-%\input{results_and_discussion}
-%\input{conclusions}
-%\input{references}
-% \printbibliography
+\input{methods}
+\input{results_and_discussion}
+\input{conclusions}
+\input{references}
+\printbibliography
 \end{document}
